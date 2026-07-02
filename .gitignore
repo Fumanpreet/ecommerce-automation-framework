@@ -6,6 +6,7 @@ out/
 .kotlin/
 allure-results/
 reports/
+.allure/
 
 ### Build Tools & Packaging ###
 *.jar
@@ -44,4 +45,5 @@ reports/
 Thumbs.db
 
 ### Miscellaneous ###
+src/main/java/pages/HomePage.java
 TODO Next

@@ -1,0 +1,39 @@
+# --- Build & Output Directories ---
+target/
+build/
+bin/
+out/
+
+# --- Allure Test Results & Reports ---
+allure-results/
+allure-report/
+.allure/
+
+# --- IDEs and Text Editors Caches ---
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# --- System & Log Files ---
+.DS_Store
+Thumbs.db
+*.log
+logs/
+
+# --- Version Control Caches ---
+.git
+.gitignore
+.github/
+
+# --- Local Environment & Secrets ---
+.env
+*.properties.local

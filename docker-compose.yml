@@ -1,0 +1,12 @@
+
+services:
+  automation:
+    # Use the Dockerfile located in the current directory
+    build:
+      context: .
+    container_name: ecommerce-framework
+    # Store the allure results before docker container gets deleted
+    volumes:
+      - ./allure-results:/app/allure-results
+    # Overrides the `CMD` in Dockerfile
+    command: mvn clean test
