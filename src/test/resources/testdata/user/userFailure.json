@@ -1,0 +1,200 @@
+[
+  {
+    "firstName": "",
+    "lastName": "Says",
+    "dateOfBirth": "2000-01-01",
+    "phoneNumber": "1234567890",
+    "email": "SimonSays2000@gmail.com",
+    "password": "SimonSays2000@",
+    "errorType": "FIRST_NAME",
+    "expectedResult": "First name is required",
+    "address": {
+      "country": "Canada",
+      "postalCode": "123 TFG",
+      "houseNumber": "123425",
+      "street": "Backyard St",
+      "city": "Dholakpur",
+      "state": "London"
+    }
+  },
+  {
+    "firstName": "Simon",
+    "lastName": "",
+    "dateOfBirth": "2000-01-01",
+    "phoneNumber": "1234567890",
+    "email": "SimonSays2000@gmail.com",
+    "password": "SimonSays2000@",
+    "errorType": "LAST_NAME",
+    "expectedResult": "Last name is required",
+    "address": {
+      "country": "Canada",
+      "postalCode": "123 TFG",
+      "houseNumber": "123425",
+      "street": "Backyard St",
+      "city": "Dholakpur",
+      "state": "London"
+    }
+  },
+  {
+    "firstName": "Simon",
+    "lastName": "Says",
+    "dateOfBirth": "w2w",
+    "phoneNumber": "1234567890",
+    "email": "SimonSays2000@gmail.com",
+    "password": "SimonSays2000@",
+    "errorType": "DOB",
+    "expectedResult": "Please enter a valid date in YYYY-MM-DD format.",
+    "address": {
+      "country": "Canada",
+      "postalCode": "123 TFG",
+      "houseNumber": "123425",
+      "street": "Backyard St",
+      "city": "Dholakpur",
+      "state": "London"
+    }
+  },
+  {
+    "firstName": "Simon",
+    "lastName": "Says",
+    "dateOfBirth": "",
+    "phoneNumber": "1234567890",
+    "email": "SimonSays2000@gmail.com",
+    "password": "SimonSays2000@",
+    "errorType": "DOB",
+    "expectedResult": "Please enter a valid date in YYYY-MM-DD format.  Date of Birth is required",
+    "address": {
+      "country": "Canada",
+      "postalCode": "123 TFG",
+      "houseNumber": "123425",
+      "street": "Backyard St",
+      "city": "Dholakpur",
+      "state": "London"
+    }
+  },
+  {
+    "firstName": "Simon",
+    "lastName": "Says",
+    "dateOfBirth": "2000-01-01",
+    "phoneNumber": "",
+    "email": "SimonSays2000@gmail.com",
+    "password": "SimonSays2000@",
+    "errorType": "PHONE",
+    "expectedResult": "Phone is required.",
+    "address": {
+      "country": "Canada",
+      "postalCode": "123 TFG",
+      "houseNumber": "123425",
+      "street": "Backyard St",
+      "city": "Dholakpur",
+      "state": "London"
+    }
+  },
+  {
+    "firstName": "Simon",
+    "lastName": "Says",
+    "dateOfBirth": "2000-01-01",
+    "phoneNumber": "d4",
+    "email": "SimonSays2000@gmail.com",
+    "password": "SimonSays2000@",
+    "errorType": "PHONE",
+    "expectedResult": "Only numbers are allowed.",
+    "address": {
+      "country": "Canada",
+      "postalCode": "123 TFG",
+      "houseNumber": "123425",
+      "street": "Backyard St",
+      "city": "Dholakpur",
+      "state": "London"
+    }
+  },
+  {
+    "firstName": "Simon",
+    "lastName": "Says",
+    "dateOfBirth": "2000-01-01",
+    "phoneNumber": "1234567890",
+    "email": "",
+    "password": "SimonSays2000@",
+    "errorType": "EMAIL",
+    "expectedResult": "Email is required",
+    "address": {
+      "country": "Canada",
+      "postalCode": "123 TFG",
+      "houseNumber": "123425",
+      "street": "Backyard St",
+      "city": "Dholakpur",
+      "state": "London"
+    }
+  },
+  {
+    "firstName": "Simon",
+    "lastName": "Says",
+    "dateOfBirth": "2000-01-01",
+    "phoneNumber": "1234567890",
+    "email": "dd@",
+    "password": "SimonSays2000@",
+    "errorType": "EMAIL",
+    "expectedResult": "Email format is invalid",
+    "address": {
+      "country": "Canada",
+      "postalCode": "123 TFG",
+      "houseNumber": "123425",
+      "street": "Backyard St",
+      "city": "Dholakpur",
+      "state": "London"
+    }
+  },
+  {
+    "firstName": "Simon",
+    "lastName": "Says",
+    "dateOfBirth": "2000-01-01",
+    "phoneNumber": "1234567890",
+    "email": "SimonSays2000@gmail.com",
+    "password": "",
+    "errorType": "PASSWORD",
+    "expectedResult": "Password is required  Password must be minimal 6 characters long.  Password can not include invalid characters.",
+    "address": {
+      "country": "Canada",
+      "postalCode": "123 TFG",
+      "houseNumber": "123425",
+      "street": "Backyard St",
+      "city": "Dholakpur",
+      "state": "London"
+    }
+  },
+  {
+    "firstName": "Simon",
+    "lastName": "Says",
+    "dateOfBirth": "2000-01-01",
+    "phoneNumber": "1234567890",
+    "email": "SimonSays2000@gmail.com",
+    "password": "s4$$",
+    "errorType": "PASSWORD",
+    "expectedResult": "Password must be minimal 6 characters long.  Password can not include invalid characters.",
+    "address": {
+      "country": "Canada",
+      "postalCode": "123 TFG",
+      "houseNumber": "123425",
+      "street": "Backyard St",
+      "city": "Dholakpur",
+      "state": "London"
+    }
+  },
+  {
+    "firstName": "Simon",
+    "lastName": "Says",
+    "dateOfBirth": "2000-01-01",
+    "phoneNumber": "1234567890",
+    "email": "SimonSays2000@gmail.com",
+    "password": "s4eeee$$",
+    "errorType": "PASSWORD",
+    "expectedResult": "Password can not include invalid characters.",
+    "address": {
+      "country": "Canada",
+      "postalCode": "123 TFG",
+      "houseNumber": "123425",
+      "street": "Backyard St",
+      "city": "Dholakpur",
+      "state": "London"
+    }
+  }
+]

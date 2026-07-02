@@ -1,0 +1,32 @@
+[
+  {
+    "email": "invalid@test.com",
+    "password": "password123",
+    "expectedResult": "Invalid email or password",
+    "errorType": "GLOBAL"
+  },
+  {
+    "email": "",
+    "password": "wrongpass",
+    "expectedResult": "Email is required",
+    "errorType": "EMAIL"
+  },
+  {
+    "email": "inalid@.com",
+    "password": "wrongpass",
+    "expectedResult": "Email format is invalid",
+    "errorType": "EMAIL"
+  },
+  {
+    "email": "invalid@test.com",
+    "password": "",
+    "expectedResult": "Password is required",
+    "errorType": "PASSWORD"
+  },
+  {
+    "email": "invalid@test.com",
+    "password": "ad",
+    "expectedResult": "Password length is invalid",
+    "errorType": "PASSWORD"
+  }
+]
