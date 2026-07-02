@@ -38,8 +38,8 @@ public class UserAuthenticationE2ETest extends BaseUiTest {
 
     @BeforeMethod
     public void setup(){
-        loginPage = new LoginPage(page);
-        accountPage = new AccountPage(page);
+        loginPage = new LoginPage(getPage());
+        accountPage = new AccountPage(getPage());
         launchBrowserPage(LOGIN_PAGE_URL);
     }
 
@@ -67,10 +67,10 @@ public class UserAuthenticationE2ETest extends BaseUiTest {
             Login and Logout via UI
         */
         loginPage.login(user.getEmail(), user.getPassword());
-        assertThat(page).hasURL(ConfigManager.getBaseUrl() + ACCOUNT_PAGE_URL);
-        page.waitForTimeout(3000);
+        assertThat(getPage()).hasURL(ConfigManager.getBaseUrl() + ACCOUNT_PAGE_URL);
+        getPage().waitForTimeout(3000);
         accountPage.logout();
-        assertThat(page).hasURL(ConfigManager.getBaseUrl() + LOGIN_PAGE_URL);
+        assertThat(getPage()).hasURL(ConfigManager.getBaseUrl() + LOGIN_PAGE_URL);
 
 
         /*

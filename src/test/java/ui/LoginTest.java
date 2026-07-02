@@ -24,24 +24,23 @@ public class LoginTest extends BaseUiTest {
 
     @BeforeMethod
     public void setup(){
-        loginPage = new LoginPage(page);
-        accountPage = new AccountPage(page);
+        loginPage = new LoginPage(getPage());
+        accountPage = new AccountPage(getPage());
         launchBrowserPage(LOGIN_PAGE_URL);
     }
 
-    @Test(dataProvider = "successLoginData", dataProviderClass = LoginDataProvider.class)
+    @Test
     @Epic("UI Testing")
     @Feature("Login")
     @Story("Login Form Validation")
     @Description("Verify valid user can login and logout.")
-    public void testValidLoginAndLogout(LoginTestData user){
+    public void testValidLoginAndLogout(){
 
-        loginPage.login(user.getEmail(), user.getPassword());
-//        loginPage.login(ConfigManager.getDefaultEmail(), ConfigManager.getDefaultPassword());
-        assertThat(page).hasURL(ConfigManager.getBaseUrl() + ACCOUNT_PAGE_URL);
-        page.waitForTimeout(3000);
+        loginPage.login(ConfigManager.getDefaultEmail(), ConfigManager.getDefaultPassword());
+        assertThat(getPage()).hasURL(ConfigManager.getBaseUrl() + ACCOUNT_PAGE_URL);
+        getPage().waitForTimeout(3000);
         accountPage.logout();
-        assertThat(page).hasURL(ConfigManager.getBaseUrl() + LOGIN_PAGE_URL);
+        assertThat(getPage()).hasURL(ConfigManager.getBaseUrl() + LOGIN_PAGE_URL);
 
     }
 

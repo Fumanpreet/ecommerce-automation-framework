@@ -15,9 +15,8 @@ import java.nio.file.Paths;
 public class BaseUiTest {
     private Playwright playwright;
     private Browser browser;
-    protected BrowserContext context;
-    @Getter
-    protected Page page;
+    protected ThreadLocal<BrowserContext> context = new ThreadLocal<>();
+    protected ThreadLocal<Page> page = new ThreadLocal<>();
 
     @BeforeClass
     protected void setUp(){
@@ -55,28 +54,45 @@ public class BaseUiTest {
 
     @BeforeMethod
     protected void initializeTestSession(ITestResult result){
-        context = browser.newContext();
+        BrowserContext ctx = browser.newContext();
+        // store on thread local
+        context.set(ctx);
 
         // Start tracing in the context
-        context.tracing().start(
+        ctx.tracing().start(
                 new Tracing.StartOptions()
                         .setScreenshots(true)
                         .setSnapshots(true)
                         .setSources(true)
         );
         // Share the context in TestNG locker for next steps (onTestFailure())
-        result.setAttribute(TestListener.CONTEXT_KEY, context);
+        result.setAttribute(TestListener.CONTEXT_KEY, ctx);
 
-        page = context.newPage();
+        Page pg = ctx.newPage();
+        page.set(pg);
+    }
+
+    public Page getPage() {
+        return page.get();
+    }
+
+    public BrowserContext getContext() {
+        return context.get();
     }
 
     protected void launchBrowserPage(String url){
-        page.navigate(ConfigManager.getBaseUrl() + url, new Page.NavigateOptions().setWaitUntil(WaitUntilState.NETWORKIDLE));
+        getPage().navigate(ConfigManager.getBaseUrl() + url, new Page.NavigateOptions().setWaitUntil(WaitUntilState.NETWORKIDLE));
+    }
+
+    @AfterMethod
+    protected void tearDownMethod(){
+        context.remove();
+        page.remove();
     }
 
     @AfterClass
     protected void tearDown() {
-        browser.close();
-        playwright.close();
+        if (browser != null) browser.close();
+        if (playwright != null) playwright.close();
     }
 }

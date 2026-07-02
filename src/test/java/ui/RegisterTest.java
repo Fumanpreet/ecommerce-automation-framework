@@ -9,6 +9,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import models.testdata.UserTestData;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 import pages.RegisterPage;
 
@@ -21,7 +22,7 @@ public class RegisterTest extends BaseUiTest {
 
     @BeforeMethod
     public void setup(){
-        registerPage = new RegisterPage(page);
+        registerPage = new RegisterPage(getPage());
 
         launchBrowserPage(REGISTER_PAGE_URL);
     }
@@ -32,9 +33,11 @@ public class RegisterTest extends BaseUiTest {
     @Story("Registration Form Validation")
     @Description("Verify valid user can register.")
     public void testValidUserRegistration(UserTestData user){
+        // so that email does not clash (Always a unique email)
+        user.setEmail(factories.UserFactory.generateUniqueEmail(user));
         registerPage.register(user);
 
-        assertThat(page).hasURL(ConfigManager.getBaseUrl() + LOGIN_PAGE_URL);
+        assertThat(getPage()).hasURL(ConfigManager.getBaseUrl() + LOGIN_PAGE_URL);
     }
 
 
